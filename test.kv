@@ -1,0 +1,199 @@
+<TextInput>:
+    halign: 'center'
+    valign: 'center'
+    multiline: False
+<BigLabel@Label>:
+    color: 'black'
+    background_color: (192/255, 192/255, 192/255, 1)
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<SmallLabel@Label>:
+    font_size: 20
+<SaveButton@Button>:
+    font_size: 20
+    text: 'Сохранить настройки'
+BoxLayout:
+    padding: [self.width * 0.01, self.width * 0.01, self.width * 0.01, self.height * 0.4]
+    spacing: self.width * 0.004
+    canvas:
+        Color:
+            rgb: 0, 0, 0
+        Rectangle:
+            size: self.width, self.height
+    orientation: 'vertical'
+    BoxLayout:
+        BigLabel:
+            text: 'Размеры стенда'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.stand_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            size_hint_x: 0.16
+            text: 'Ширина, мм'
+        TextInput:
+            id: stand_width
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Высота, мм'
+            size_hint_x: 0.16
+        TextInput:
+            id: stand_height
+            size_hint_x: 0.16
+        Label:
+            size_hint_x: 0.36
+            text: ''
+    BoxLayout:
+        BigLabel:
+            text: 'ПВХ'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.pvh_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            size_hint_x: 0.16
+            text: 'Ширина, мм'
+        TextInput:
+            id: pvh_width
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Высота, мм'
+            size_hint_x: 0.16
+        TextInput:
+            id: pvh_height
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Цена'
+            size_hint_x: 0.16
+        TextInput:
+            id: pvh_price
+            size_hint_x: 0.2
+    BoxLayout:
+        BigLabel:
+            text: 'Фолия'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.folia_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            size_hint_x: 0.16
+            text: 'Цена'
+        TextInput:
+            size_hint_x: 0.16
+            id: folia_price
+        Label:
+            size_hint_x: 0.68
+            text: ''
+    BoxLayout:
+        BigLabel:
+            text: 'ПЭТ'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.pet_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            text: 'Ширина, мм'
+            size_hint_x: 0.16
+        TextInput:
+            id: pet_width
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Высота, мм'
+            size_hint_x: 0.16
+        TextInput:
+            id: pet_height
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Цена'
+            size_hint_x: 0.16
+        TextInput:
+            id: pet_price
+            size_hint_x: 0.20
+    BoxLayout:
+        BigLabel:
+            text: 'Количество карманов'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.papper_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            text: 'A3'
+            size_hint_x: 0.16
+        TextInput:
+            id: a3
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'A4'
+            size_hint_x: 0.16
+        TextInput:
+            id: a4
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'A5'
+            size_hint_x: 0.16
+        TextInput:
+            id: a5
+            size_hint_x: 0.20
+    BoxLayout:
+        BigLabel:
+            text: 'Скотч'
+            size_hint_x: 0.64
+        SaveButton:
+            size_hint_x: 0.36
+            on_press: app.scotch_btn()
+    BoxLayout:
+        orientation: 'horizontal'
+        SmallLabel:
+            text: 'Ширина, см'
+            size_hint_x: 0.16
+        TextInput:
+            id: scotch_width
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Длина, м'
+            size_hint_x: 0.16
+        TextInput:
+            id: scotch_length
+            size_hint_x: 0.16
+        SmallLabel:
+            text: 'Цена'
+            size_hint_x: 0.16
+        TextInput:
+            id: scotch_price
+            size_hint_x: 0.2
+    Button:
+        color: 'aqua'
+        text: 'Рассчитать'
+        on_press: app.press()
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            color: 'white'
+            text: 'Себестоимость:'
+        Label:
+            id: sbs
+            color: 'white'
+            text: '0'
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            color: 'aqua'
+            text: 'Полная цена'
+        Label:
+            id: full_price
+            color: 'aqua'
+            text: '0'
